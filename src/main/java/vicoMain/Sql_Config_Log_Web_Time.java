@@ -15,6 +15,7 @@ import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.redis.RedisClient;
 import io.vertx.redis.RedisOptions;
 import utils.JdbcUtils;
+import utils.RedisUtils;
 import utils.Utils;
 
 import java.text.SimpleDateFormat;
@@ -38,8 +39,7 @@ public class Sql_Config_Log_Web_Time  extends AbstractVerticle {
         router.route().consumes("application/json");
         router.route().produces("application/json");
         jdbcClient = new JdbcUtils(vertx).getDbClient();
-        RedisOptions config = new RedisOptions().setHost("192.168.1.69").setPort(6379).setAuth("oQFMvr*QgoX4vznj");
-        redisClient = RedisClient.create(vertx, config);
+        redisClient= RedisUtils.getRedisClient(vertx);
         VicoDao vicoDao = new VicoDao(jdbcClient);
         //新建post请求,在chuLiWeb里面处理,前面是类对象，后面是方法
         router.post("/vicoPostTest").handler(vicoDao::chuLiWeb);
@@ -55,22 +55,23 @@ public class Sql_Config_Log_Web_Time  extends AbstractVerticle {
     //设置每分钟执行一次
     private void setStatus1(){
         this.vertx.setPeriodic(60000,handler->{
-            lunXunShuJuKu();
+            //读取配置，打包成jar后放入服务器，可在服务器同级目录新建conf目录，及conifg.json文件，优先读取文件
+            readConfig(vertx);
+            System.out.println("测试用...."+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         });
     }
     private void redisTest(){
         this.vertx.setPeriodic(60000,handler->{
-
+            redisClient.hget("Bittrex","btcusdt",res->{
+                if (res.succeeded()) {
+                    System.out.println("ok:"+res.result());
+                }else {
+                    logger.error(res.cause().getMessage());
+                    res.cause().printStackTrace();
+                }
+            });
         });
-
     }
-    private void lunXunShuJuKu() {
-        //读取配置，打包成jar后放入服务器，可在服务器同级目录新建conf目录，及conifg.json文件，优先读取文件
-        readConfig(vertx);
-        System.out.println("测试用...."+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-    }
-
-
 
     public Future<Boolean> readConfig(Vertx vertx) {
         Future<Boolean> future = Future.future();
