@@ -50,6 +50,12 @@
             <artifactId>vertx-jdbc-client</artifactId>
             <version>3.6.0</version>
         </dependency>
+        <!-- redis依赖-->
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-redis-client</artifactId>
+            <version>3.4.1</version>
+        </dependency>
         <dependency>
             <!-- jsoup HTML parser library 获取网页html内容 -->
             <groupId>org.jsoup</groupId>
