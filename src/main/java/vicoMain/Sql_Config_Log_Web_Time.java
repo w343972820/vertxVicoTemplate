@@ -21,6 +21,7 @@ import java.util.List;
 public class Sql_Config_Log_Web_Time  extends AbstractVerticle {
     InternalLogger logger = Log4JLoggerFactory.getInstance(Sql_Config_Log_Web_Time.class);
     JDBCClient jdbcClient;
+    JsonObject jsonConfig;
     @Override
     public void start() throws Exception {
         // 创建HttpServer
@@ -33,7 +34,7 @@ public class Sql_Config_Log_Web_Time  extends AbstractVerticle {
         router.route().produces("application/json");
         jdbcClient = new JdbcUtils(vertx).getDbClient();
         //读取配置
-        readConfig(vertx);
+
         //新建post请求
         router.post("/vicoPostTest").handler(req->{
             //对客户端传入的参数做json处理
@@ -74,6 +75,8 @@ public class Sql_Config_Log_Web_Time  extends AbstractVerticle {
         });
     }
     private void lunXunShuJuKu() {
+        //读取配置，打包成jar后放入服务器，可在服务器同级目录新建conf目录，及conifg.json文件，优先读取文件
+        readConfig(vertx);
         System.out.println("测试用...."+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
     }
 
@@ -118,6 +121,7 @@ public class Sql_Config_Log_Web_Time  extends AbstractVerticle {
         Utils.getConfig(vertx, "conf/config.json").setHandler(handler->{
             if(handler.succeeded()) {
                 JsonObject json = handler.result();
+                jsonConfig = json;
                 System.out.println("json:"+json.encodePrettily());
                 future.complete(true);
             }else {

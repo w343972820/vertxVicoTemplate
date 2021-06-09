@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fd59a0f-8e8a-4af7-95f6-bb413e40551c" name="Default" comment="" />
+    <list default="true" id="1fd59a0f-8e8a-4af7-95f6-bb413e40551c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vicoMain/Sql_Config_Log_Web_Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vicoMain/Sql_Config_Log_Web_Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vicoMain/Sql_Config_Log_Web_Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vicoMain/Sql_Config_Log_Web_Time.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +21,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="353">
+              <caret line="96" column="32" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -31,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sql_Config_Log_Web_Time.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Sql_Config_Log_Web_Time.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/vicoMain/Sql_Config_Log_Web_Time.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-842">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="152">
+              <caret line="77" column="62" lean-forward="true" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1064">
-              <caret line="56" column="7" lean-forward="true" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+              <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,14 +99,17 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/vicoMain/StringUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/vicoMain/JdbcUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/JdbcUtils.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/vicoMain/Sql_Config_Log_Web_Time.java" />
       </list>
     </option>
@@ -129,13 +137,7 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="vico.com" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="vico.com" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="io.vertx:vertx-config:3.5.2" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -150,6 +152,7 @@
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -317,12 +320,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623205235537</updated>
-      <workItem from="1623205239416" duration="7305000" />
+      <workItem from="1623205239416" duration="9596000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7305000" />
+    <option name="totallyTimeSpent" value="9596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -337,12 +340,12 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" visible="true" weight="0.33102345" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4820457" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29738563" />
+      <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17537314" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -410,27 +413,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vicoMain/Sql_Config_Log_Web_Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-842">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="1064">
+          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="56" column="7" lean-forward="true" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        <state relative-caret-position="353">
+          <caret line="96" column="32" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vicoMain/Sql_Config_Log_Web_Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="77" column="62" lean-forward="true" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

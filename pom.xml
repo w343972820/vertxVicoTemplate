@@ -84,7 +84,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.jieWeiTiBiYeWU.JieShouQIngQiu</mainClass>
+                            <mainClass>vicoMain.Sql_Config_Log_Web_Time</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
