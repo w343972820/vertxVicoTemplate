@@ -25,6 +25,7 @@ public class VicoDao {
         //可以先对putuuid判断，在响应相应的值
         sqlQury(putuuid).setHandler(h->{
             if (h.succeeded()){
+                System.out.println("查看数据库成功。。。");
                 if (h.result()){
                     req.response()
                             .putHeader("content-type", "application/json")
