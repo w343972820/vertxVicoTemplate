@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VicoVertxWebTest</title>
+    <script type="text/javascript" src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vertx/3.9.4/vertx-eventbus.js" integrity="sha512-VrRwqyJDNp45te5G65iLciA6UVrV7sq3jv8Ia5sDIopXyDP2dyzr4NaRhPMeNGlfEt/CPHe5ThhGJp3r48mVAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            $("#lookCoinNumber").click(function(){
+                var paramCoin = $('#coinName').val();
+                var paramSecret = $('#googlesecret').val();
+                //将按钮置灰
+                $("#lookCoinNumber").attr('disabled','disabled');
+                console.log("paramCoin:"+paramCoin);
+                console.log("paramSecret:"+paramSecret);
+                setTimeout(function(){
+                        //超时啦，干点什么
+                    },
+                    15000 //超时时间，考虑到网络问题，5秒还是比较合理的
+                );
+                $.get("/queryQuanlity",{
+                    coin:paramCoin,
+                    secret:paramSecret
+                },function(data,status){
+                 alert("数据: " + data + "\n状态: " + status);
+                });
+            });
+        });
+        $(document).ready(function(){
+            $("#fileImport").click(function(){
+                var paramCoin = $('#coinName').val();
+                var paramNumber = $('#coinNumber').val();
+                var paramSecret = $('#googlesecret').val();
+                //将按钮置灰
+                $("#fileImport").attr('disabled','disabled');
+                console.log("paramCoin:"+paramCoin);
+                console.log("paramNumber:"+paramNumber);
+                console.log("paramSecret:"+paramSecret);
+                setTimeout(function(){
+                        //超时啦，干点什么
+                    },
+                    15000 //超时时间，考虑到网络问题，5秒还是比较合理的
+                );
+                $.get("/toSellCoin",{
+                    coin:paramCoin,
+                    number:paramNumber,
+                    secret:paramSecret
+                },function(data,status){
+                    alert("数据: " + data + "\n状态: " + status);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form  action="/vico" method="post">
+        <label>币种：</label>
+        <input type="text" id="coinName" name="name">
+        <br>
+        <label>数量：</label>
+        <input type="text" id="coinNumber" name="number">
+        <br>
+        <label>google密钥：</label>
+        <input type="text" id="googlesecret" name="secret">
+        <br>
+        <br>
+        <input type="button" id="lookCoinNumber" value="查看币种数量">
+        <br>
+        <br>
+        <input type="button" id="fileImport" value="执行卖币操作">
+       <!-- <br>
+        <label>性别</label>
+        <input type="checkbox" name="sex" value="M">男
+        <input type="checkbox" name="sex" value="F">女
+        <br>
+        <label>年龄</label>
+        <select name="age">
+            <option value="1">一岁</option>
+            <option value="2">两岁</option>
+            <option value="3">三岁</option>
+            <option value="4">四岁</option>
+        </select>
+        <br>-->
+    </form>
+
+
+   <!-- <td th:text=${coin}></td>
+    <td>卖出</td>
+    <td th:text=${number}></td>
+    <td>个</td>
+    &lt;!&ndash;<button>确定卖出</button>&ndash;&gt;
+    <p th:onclick="'showUserInfo()'">确定</p>-->
+
+
+<!--<h1 th:text=${coin}></h1>
+<h1 th:text=${secret}></h1>-->
+</body>
+</html>
