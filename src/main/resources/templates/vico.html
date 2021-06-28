@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--自适应，适应pc及h5-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <title>Title</title>
+    <script type="text/javascript" src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vertx/3.9.4/vertx-eventbus.js" integrity="sha512-VrRwqyJDNp45te5G65iLciA6UVrV7sq3jv8Ia5sDIopXyDP2dyzr4NaRhPMeNGlfEt/CPHe5ThhGJp3r48mVAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            $("#pick").click(function(){
+                var paramCoin = $('#coinName').val();
+                var paramNumber= $('#coinNumber').val();
+                var param = {"coin":paramCoin,"number":paramNumber};
+                //将按钮置灰
+                //$("#lookCoinNumber").attr('disabled','disabled');
+                console.log("paramCoin:"+paramCoin);
+                console.log("paramSecret:"+paramNumber);
+                var htmlobj=$.ajax({
+                    url:"/updateLabel",
+                    type: "GET",
+                    contentType: "application/json",
+                    dataType:"json",
+                    data:param,
+                    async:false
+                });
+                $("#myDiv").html(htmlobj.responseText);
+
+               /* $.get("/updateLabel",{
+                    coin:paramCoin,
+                    number:paramNumber
+                },function(data,status){
+                    //alert("数据: " + data + "\n状态: " + status);
+                });*/
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <br>
+    <label>币种：</label>
+    <input type="text" id="coinName" name="name">
+    <br>
+    <br>
+    <label>数量：</label>
+    <input type="text" id="coinNumber" name="number">
+    <br>
+    <br>
+    <input type="button" id="pick" value="点一下">
+    <br>
+    <br>
+    <div id="myDiv"><h2 >Let AJAX change this text</h2></div>
+
+</body>
+</html>
