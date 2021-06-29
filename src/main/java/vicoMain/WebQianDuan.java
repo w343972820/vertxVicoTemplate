@@ -7,16 +7,21 @@ import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.json.JsonObject;
+import io.vertx.core.net.SocketAddress;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.CorsHandler;
 import io.vertx.ext.web.templ.thymeleaf.ThymeleafTemplateEngine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class WebQianDuan extends AbstractVerticle {
     ArrayList<Long> secretList;
     InternalLogger logger = Log4JLoggerFactory.getInstance(WebQianDuan.class);
+    Map<String,Integer> ipMaps= new HashMap<>();
+    int updateLabelCount=0;
     @Override
     public void start() throws Exception {
         ThymeleafTemplateEngine engine = ThymeleafTemplateEngine.create(vertx);
@@ -42,7 +47,33 @@ public class WebQianDuan extends AbstractVerticle {
         });
         //如果用户点击，需要修改页面的
         router.route("/updateLabel").handler(req -> {
-            String coin = req.request().getParam("coin");
+            //SocketAddress address = req.request().localAddress();
+            //String aaa = address.host();
+           // logger.info("ip:"+aaa);
+            String ip = IPUtils.getIpAddr(req.request());
+            logger.info("ip:"+ip);
+            if (!ipMaps.containsKey(ip)){
+                ipMaps.put(ip,1);
+                vertx.setTimer(5000,hand->{
+                    ipMaps.remove(ip);
+
+                });
+                req.response()
+                        .putHeader("content-type", "text/plain")
+                        .end("成功fdsafsd。。。"+ip);
+            }else{
+                if (ipMaps.get(ip)<2){
+                    ipMaps.put(ip,ipMaps.get(ip)+1);
+                    req.response()
+                            .putHeader("content-type", "text/plain")
+                            .end("成功fdsafsd。。。"+ip);
+                }else{
+                    req.response()
+                            .putHeader("content-type", "text/plain")
+                            .end("请求频繁，等会");
+                }
+            }
+           /* String coin = req.request().getParam("coin");
             String number = req.request().getParam("number");
             JsonObject jspn = new JsonObject();
             jspn.put("coin",coin.toUpperCase());
@@ -55,14 +86,8 @@ public class WebQianDuan extends AbstractVerticle {
                             .putHeader("content-type", "text/plain")
                             .end("成功。。。");
                 }
-            });
-
-
-
-
-
+            });*/
         });
-
         router.get("/qwer").handler(req -> {
             String coin = req.request().getParam("coin"); //vert.x获取url参数就这一句
             String number = req.request().getParam("number"); //vert.x获取url参数就这一句
